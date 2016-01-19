@@ -10,13 +10,11 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 public class SelectionActivity extends ActionBarActivity implements ActionBar.TabListener {
 
@@ -73,7 +71,8 @@ public class SelectionActivity extends ActionBarActivity implements ActionBar.Ta
                             .setText(mSectionsPagerAdapter.getPageTitle(i))
                             .setTabListener(this));
         }
-        BasicMusic.play(SelectionActivity.this);
+        Song test = new Song(SelectionActivity.this,R.raw.happy);
+        test.play();
     }
 
 
