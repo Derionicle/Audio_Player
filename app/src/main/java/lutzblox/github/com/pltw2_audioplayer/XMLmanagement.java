@@ -66,7 +66,7 @@ public class XMLmanagement {
         }
         return new String[0];
     }
-    public void newSong(Context context, String name, String playlist){
+    public void newSong(Context context, String name, String playlist, String path){
         try {
             InputStream in = context.openFileInput("music.xml");
             XMLTree tree = EasyXML.newXMLReader().read(in);
@@ -80,6 +80,7 @@ public class XMLmanagement {
             XMLTag song = new XMLTag(name);
             root.getChildren("playlists")[0].getChildren(playlist)[0].addChild(song);//Shouldn't this be enough?
             root.getChildren("playlists")[0].getChildren(playlist)[0].getChildren(name)[0].addAttribute("name", name);
+            root.getChildren("playlists")[0].getChildren(playlist)[0].getChildren(name)[0].addAttribute("path", path);
             OutputStream out = context.openFileOutput("music.xml", 0);
             XMLWriter toWrite = EasyXML.newXMLWriter();
             toWrite.write(tree);//Right?  -- Don't get purpose of writer
